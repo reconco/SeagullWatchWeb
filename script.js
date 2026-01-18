@@ -78,7 +78,7 @@ tabBtns.forEach(btn => {
         if (tabId === 'timer') {
             patternContainer.style.display = 'none';
         } else {
-            patternContainer.style.display = 'block';
+            patternContainer.style.display = ''; // CSS 설정(flex)을 따르도록 초기화
         }
     });
 });
