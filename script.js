@@ -1,3 +1,22 @@
+/* --- 모바일(스마트폰) 전용 뷰포트 배율 설정 --- */
+function setMobileViewport() {
+    // 기기의 가장 짧은 변(가로/세로 중 작은 값)이 768px 미만이면 스마트폰으로 간주
+    // (screen.width를 사용하여 현재 줌 상태에 영향을 받지 않도록 함)
+    const isSmartphone = Math.min(window.screen.width, window.screen.height) < 768;
+    
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (isSmartphone) {
+        // 스마트폰: 50% 축소 (넓게 보임)
+        viewport.setAttribute('content', 'width=device-width, initial-scale=0.5');
+    } else {
+        // 태블릿/PC: 기본 100%
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    }
+}
+// 초기 실행 및 리사이즈 감지
+setMobileViewport();
+window.addEventListener('resize', setMobileViewport);
+
 // 스톱워치 인스턴스 생성
 const stopwatch = new Stopwatch(
     document.getElementById('display'),
