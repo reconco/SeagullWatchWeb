@@ -1,0 +1,314 @@
+/* 패턴용 공통 카드 스타일 */
+.pattern-input-wrapper,
+.pattern-item {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.pattern-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7.5px;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.pattern-item {
+    display: flex;
+    flex-direction: column; /* 세로 정렬로 변경하여 구조 통일 */
+    align-items: center; /* 중앙 정렬 */
+    gap: 2px; /* 간격 통일 */
+    font-size: 1.1rem;
+}
+
+.time-inputs {
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pattern-input {
+    width: 40px;
+    padding: 4px;
+    font-size: 1.25rem;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #2c3e50;
+    background: transparent;
+}
+
+.pattern-input:focus {
+    outline: none;
+    border-bottom-color: #2c3e50;
+}
+
+.pattern-message-input {
+    padding: 4px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0;
+    width: 80%;
+    font-size: 1rem;
+    background: transparent;
+    color: #2c3e50;
+}
+
+.pattern-message-input::placeholder {
+    color: #7f8c8d;
+}
+
+.pattern-message-input:focus {
+    outline: none;
+    border-bottom-color: #2c3e50;
+}
+
+.add-btn {
+    padding: 2.5px 7.5px;
+    font-size: 0.9rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+    margin-left: 10px;
+}
+
+.add-btn:hover {
+    background-color: #2980b9;
+}
+
+.pattern-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 0 1 auto; /* 내용만큼만 차지하고, 공간 부족하면 줄어듦 */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 2px;
+    min-height: 0;
+}
+
+#patternContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto; /* 내용만큼만 차지하고, 공간 부족하면 줄어듦 */
+    min-height: 0;
+    width: auto;
+}
+
+.pattern-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 중앙 정렬 */
+    gap: 7px; /* 입력창과 동일한 간격 */
+    width: 100%; /* 너비 확보 */
+}
+
+.pattern-time-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* 입력창과 동일한 간격 */
+    font-size: 1.25rem; /* 시간 크기 통일 */
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+}
+
+.pattern-time {
+    font-weight: normal; /* 입력창과 비슷하게 */
+    color: #2c3e50;
+    width: 40px; /* 입력창과 동일한 너비 점유 */
+    text-align: center;
+    border-bottom: 2px solid transparent; /* 높이 맞춤용 */
+    padding: 4px;
+}
+.pattern-msg {
+    width: 100%; /* 메시지 꽉 차게 */
+    text-align: center;
+    font-size: 1rem;
+    color: #2c3e50; /* 색상을 좀 더 진하게 변경하여 가독성 확보 */
+    padding: 2.5px;
+    border-bottom: 2px solid transparent; 
+    font-weight: bold;
+}
+
+/* 위에 이미 정의되어 있지만, style.css에 중복 정의되어 있던 것 그대로 가져옴 */
+.pattern-time-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0; /* 개별 요소 margin으로 제어 */
+}
+
+/* timeSpan 스타일 (script.js에서 인라인으로 넣던 것 클래스로 이동 추천하나 일단 유지) */
+
+.edit-btn, .delete-btn {
+    padding: 0;
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60px; /* 너비 약간 증가 */
+    height: 34px; /* 높이 약간 증가 */
+    flex-shrink: 0; /* 크기 줄어듦 방지 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn {
+    background-color: #f39c12;
+    margin: 0;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    margin: 0;
+}
+
+.edit-btn:hover {
+    background-color: #d35400;
+}
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* 새로운 row 레이아웃용 */
+.pattern-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 2.5px;
+}
+
+/* 메시지와 시간 부분을 가운데 정렬하거나 꽉 채우기 위해 */
+.pattern-msg {
+    flex-grow: 1;
+    text-align: left; /* 좌측 정렬이 자연스러움 */
+    margin: 0;
+    width: auto;
+}
+
+.pattern-time-wrapper, .time-inputs {
+    flex-grow: 1;
+    justify-content: center; /* 시간은 중앙 정렬 */
+    margin: 0;
+}
+
+.pattern-message-input {
+    flex-grow: 1;
+    width: auto;
+    margin-bottom: 0 !important; /* 기존 margin 제거 */
+}
+
+
+/* .pattern-btn-container 삭제됨 (더 이상 사용 안함) */
+
+.pattern-options {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.pattern-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.pattern-checkbox-label input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.pattern-global-options {
+    display: flex;
+    justify-content: space-between; /* 양쪽 정렬 */
+    align-items: center;
+    margin-bottom: 5px; /* 리스트와 간격 */
+    margin-right: 0; 
+    font-size: 1rem;
+    color: #2c3e50;
+    width: 100%;
+    box-sizing: border-box; /* 패딩 포함 계산 */
+    padding: 0 10px; /* 좌우 패딩 */
+}
+
+.pattern-global-options .left-options,
+.pattern-global-options .right-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.io-btn {
+    padding: 2.5px 6px;
+    font-size: 0.9rem;
+    background-color: #7f8c8d; /* 회색 계열 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.io-btn:hover {
+    background-color: #95a5a6;
+}
+
+/* 비활성화된 버튼 스타일 */
+.add-btn:disabled,
+.edit-btn:disabled,
+.delete-btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    color: #7f8c8d;
+}
+
+/* 드래그 앤 드롭 하이라이트 */
+.container.drag-over {
+    /* 기존 스타일 유지 또는 오버레이가 있으므로 제거 가능 */
+    /* background-color: #ecf0f1; */ /* 오버레이가 덮으므로 배경색은 선택사항 */
+}
+
+.drag-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 3px dashed #3498db;
+    box-sizing: border-box;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #3498db;
+    font-weight: bold;
+    border-radius: 10px;
+    pointer-events: none; /* 이벤트를 통과시켜 드래그 상태가 깜빡이는 문제 방지 */
+}
+
+.container.drag-over .drag-overlay {
+    display: flex;
+}

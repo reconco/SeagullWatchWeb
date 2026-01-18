@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "append_css",
+			"type": "shell",
+			"command": "echo #patternContainer.drag-over { border: 2px dashed #3498db !important; background-color: rgba(52, 152, 219, 0.1); transition: all 0.3s ease; } >> e:\\GitRepository\\SeagullWatchWeb\\patternStyle.css",
+			"args": [],
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갈매기 워치</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="patternStyle.css">
+</head>
+<body>
+    <div class="container">
+        <button id="settingsBtn" class="settings-btn" title="설정">⚙️</button>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="stopwatch">스톱워치</button>
+            <button class="tab-btn" data-tab="timer">타이머</button>
+        </div>
+
+        <div id="stopwatch" class="tab-content active">
+            <h2 id="stopwatchTitle">스톱워치</h2>
+            <div id="display">00:00:00</div>
+            <div class="buttons">
+                <div class="volume-container" title="볼륨">
+                    <span id="stopwatchVolumeIcon" class="volume-icon">🔊</span>
+                    <input type="range" id="stopwatchVolumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                </div>
+                <button id="startBtn">▶</button>
+                <button id="pauseBtn">⏸</button>
+                <button id="resetBtn">↺</button>
+            </div>
+        </div>
+
+        <div id="timer" class="tab-content">
+            <h2>타이머</h2>
+            <div class="timer-inputs">
+                <input type="number" id="timerHours" placeholder="00" min="0" max="99">:
+                <input type="number" id="timerMinutes" placeholder="00" min="0" max="59">:
+                <input type="number" id="timerSeconds" placeholder="00" min="0" max="59">
+            </div>
+            <div id="timerDisplay">00:00:00</div>
+            <div class="buttons">
+                <div class="volume-container" title="볼륨">
+                    <span id="timerVolumeIcon" class="volume-icon">🔊</span>
+                    <input type="range" id="timerVolumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                </div>
+                <button id="timerStartBtn">▶</button>
+                <button id="timerPauseBtn">⏸</button>
+                <button id="timerResetBtn">↺</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="patternContainer" class="container">
+        <div class="drag-overlay">JSON 파일을 여기에 놓으세요</div>
+        <h2>패턴</h2>
+        <div class="pattern-global-options">
+            <div class="left-options">
+                <button id="savePatternBtn" class="io-btn">저장하기</button>
+                <button id="loadPatternBtn" class="io-btn">불러오기</button>
+            </div>
+            <div class="right-options">
+                <label class="pattern-checkbox-label"><input type="checkbox" id="patternUse" checked> 사용</label>
+                <label class="pattern-checkbox-label"><input type="checkbox" id="patternRepeat" checked> 반복</label>
+            </div>
+        </div>
+        <ul id="patternList" class="pattern-list">
+            <!-- 패턴 아이템이 여기에 추가됩니다 -->
+        </ul>
+        <div class="pattern-input-wrapper">
+            <input type="text" id="patternMessage" placeholder="새 패턴" class="pattern-message-input">
+            <div class="time-inputs">
+                <input type="number" id="patternHours" placeholder="00" min="0" max="99" class="pattern-input">:
+                <input type="number" id="patternMinutes" placeholder="00" min="0" max="59" class="pattern-input">:
+                <input type="number" id="patternSeconds" placeholder="00" min="0" max="59" class="pattern-input">
+                <button id="addPatternBtn" class="add-btn">추가</button>
+            </div>
+            <div id="newPatternPrediction" class="next-pattern-time" style="margin-top: 5px; font-size: 0.9rem; color: #7f8c8d;"></div>
+        </div>
+    </div>
+
+    <!-- 설정 모달 -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>설정</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- 추후 설정 항목 추가 -->
+                <p>설정 메뉴가 준비될 공간입니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 알림 모달 -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>알림</h2>
+                <span class="close-btn" id="alertCloseBtn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage"></p>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button id="alertOkBtn" style="padding: 8px 20px; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer;">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="Stopwatch.js"></script>
+    <script src="Timer.js"></script>
+    <script src="PatternManager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

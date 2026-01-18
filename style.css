@@ -1,0 +1,355 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 12.5px;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    background-color: white;
+    padding: 0.66rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 350px;
+}
+
+.container h2 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f0f2f5;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 5px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+}
+
+.tab-btn.active {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.timer-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #2c3e50;
+}
+
+.timer-inputs input {
+    width: 72px;
+    padding: 0px;
+    font-size: 3rem;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #2c3e50;
+    background: transparent;
+}
+
+.timer-inputs input:focus {
+    outline: none;
+    border-bottom-color: #2c3e50;
+}
+
+/* Chrome, Safari, Edge, Opera에서 input number 화살표 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox에서 input number 화살표 제거 */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#timerStartBtn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#timerStartBtn:hover {
+    background-color: #27ae60;
+}
+
+#timerStartBtn:active {
+    background-color: #1e8449;
+}
+
+#timerPauseBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#timerPauseBtn:hover {
+    background-color: #c0392b;
+}
+
+#timerPauseBtn:active {
+    background-color: #922b21;
+}
+
+#timerResetBtn {
+    background-color: #f39c12;
+    color: white;
+}
+
+#timerResetBtn:hover {
+    background-color: #d35400;
+}
+
+#timerResetBtn:active {
+    background-color: #a04000;
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+h1 {
+    color: #333;
+}
+
+#display, #timerDisplay {
+    font-size: 3rem;
+    margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #2c3e50;
+}
+
+#timerDisplay {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons button {
+    font-size: 1.2rem;
+    width: 60px;
+    height: 45px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+#startBtn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#startBtn:hover {
+    background-color: #27ae60;
+}
+
+#startBtn:active {
+    background-color: #1e8449;
+}
+
+#pauseBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#pauseBtn:hover {
+    background-color: #c0392b;
+}
+
+#pauseBtn:active {
+    background-color: #922b21;
+}
+
+#resetBtn {
+    background-color: #f39c12;
+    color: white;
+}
+
+#resetBtn:hover {
+    background-color: #d35400;
+}
+
+#resetBtn:active {
+    background-color: #a04000;
+}
+
+button:disabled {
+    background-color: #bdc3c7 !important;
+    cursor: not-allowed;
+}
+/* 볼륨 컨트롤 스타일 */
+.volume-container {
+    display: inline-flex;
+    align-items: center;
+    color: #7f8c8d;
+    padding: 2.5px;
+    transition: color 0.2s;
+    margin-right: 15px; /* 재생 버튼과의 간격 */
+    background-color: #f8f9fa; /* 배경 추가로 가시성 확보 */
+    border-radius: 20px;
+    padding: 2.5px 10px;
+}
+
+.volume-container:hover {
+    color: #2c3e50;
+    background-color: #e9ecef;
+}
+
+.volume-icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    cursor: default;
+}
+
+.volume-slider {
+    width: 60px;
+    cursor: pointer;
+    accent-color: #2c3e50;
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* 설정 버튼 스타일 */
+.settings-btn {
+    position: absolute;
+    top: 7.5px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    padding: 2.5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    line-height: 1;
+}
+
+.settings-btn:hover {
+    background-color: #f0f2f5;
+    color: #2c3e50;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 7.5% auto; 
+    padding: 0;
+    border-radius: 10px;
+    width: 80%; 
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #2c3e50;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+
+

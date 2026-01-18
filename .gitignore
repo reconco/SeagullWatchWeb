@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+
+# Temporary files & Testing
+temp_snippet.js
+*.log
+
+# Editor settings (Optional, uncomment if you want to ignore VS Code settings)
+# .vscode/
